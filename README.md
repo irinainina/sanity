@@ -6,11 +6,11 @@
 - link to cards API: `https://drzbiexu.api.sanity.io/v2021-10-21/data/query/production?query=*[_type=='card']`
 - getImage
 ```js
-const imgKey = data.result[`${id}`].image.asset._ref.slice(6,-4);
+const imgKey = data.result[`${id}`].image.asset._ref.replace(/image-/, '').replace(/-jpg/, '');
 const img = `https://cdn.sanity.io/images/drzbiexu/production/${imgKey}.jpg`;
 ```
 - getAudio
 ```js
-const audioKey = data.result[`${id}`].audio.asset._ref.slice(5,-4);
+const audioKey = data.result[`${id}`].audio.asset._ref.replace(/file-/, '').replace(/-mp3/, '');
 const audio = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
 ```
